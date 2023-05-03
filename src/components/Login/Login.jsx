@@ -1,5 +1,7 @@
 import React from 'react';
+import { FaBeer, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
     return (
@@ -12,6 +14,15 @@ const Login = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
+                        <div className='flex flex-row'>
+                        <button className="btn btn-outline basis-1/2 mx-auto text-2xl"> <FaGithub/> </button>
+                        <button className="btn btn-outline basis-1/2 mx-1"><span className='text-xl'><FcGoogle/></span> oogle </button>
+                        
+                        </div>
+                        <div>
+                            <p className='text-center'>or</p>
+                            <hr />
+                        </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -31,7 +42,7 @@ const Login = () => {
                                 <button className="btn btn-primary">Login</button>
                             </div>
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                       Haven't any account? <Link href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Register Here</Link></p>
+                       Haven't any account? <Link to='/register' className="font-medium text-primary-600 hover:underline dark:text-primary-500">Register Here</Link></p>
                         </div>
                     </div>
                 </div>

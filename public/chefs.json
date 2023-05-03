@@ -5,6 +5,7 @@
         "ratings": 4.9,
         "ratingsCount": 3725,
         "numberOfRecipe": 10,
+        "experience": 14,
         "img": "../assets/chefs/1.jpg",
         "recipe": [
             {
@@ -321,6 +322,7 @@
         "numberOfRecipe": 7,
         "ratings": 4.3,
         "ratingsCount": 2225,
+        "experience": 10,
         "img": "../assets/chefs/2.jpg",
         "recipe":
         [
@@ -477,6 +479,7 @@
         "ratings": 4.5,
         "ratingsCount": 1724,
         "numberOfRecipe": 20,
+        
         "img": "../assets/chefs/3.jpg",
         "recipe":
         [
