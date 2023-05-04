@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaBeer, FaGithub, FaGoogle } from 'react-icons/fa';
+import {  FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 

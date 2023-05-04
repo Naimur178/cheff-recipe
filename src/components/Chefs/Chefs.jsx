@@ -1,5 +1,6 @@
 import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Chefs = () => {
     const [chefs, setChefs] =useState([]);
@@ -10,6 +11,7 @@ const Chefs = () => {
         .then(data => setChefs(data))
         .catch(error => console.log(error))
     },[])
+    
     
     return (
         <div className='w-3/4 mx-auto mt-16'>
@@ -31,7 +33,7 @@ const Chefs = () => {
                        <p>Rating: {chef.ratings}</p>
                        <p>Likes: {chef.ratingsCount}</p>
                        <div className="card-actions justify-center ">
-                       <button className="btn btn-outline w-full btn-primary">See All Recipies</button>
+                       <Link to={`/chefReciepe/${chef.id}`} className='btn btn-outline hover:btn-primary w-full items'>See All Recipies</Link>
                        </div>
                      </div>
                    </div> )

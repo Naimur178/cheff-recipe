@@ -8,6 +8,8 @@ import Home from './components/Home/Home.jsx'
 import Blog from './components/Blog/Blog.jsx'
 import Login from './components/Login/Login.jsx'
 import Register from './components/Register/Register.jsx'
+import ChefRecipies from './components/layout/ChefRecipies.jsx'
+import AuthProvider from './provider/AuthProvider.jsx'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +31,11 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>
+      },
+      {
+        path: '/chefReciepe/:id',
+        element: <ChefRecipies></ChefRecipies>,
+        loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
       }
 
     ]
@@ -37,6 +44,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider></AuthProvider>
   </React.StrictMode>,
 )
