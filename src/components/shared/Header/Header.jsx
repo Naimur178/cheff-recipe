@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import './Header.css'
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../provider/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
+    const {user} = useContext(AuthContext);
     return (
         <div>
             <div className="navbar bg-gray-300 pb-3">
@@ -20,12 +23,19 @@ const Header = () => {
                     <ul className="menu menu-horizontal px-1">
                         <Link to="/" className='mx-3'>Home</Link>
                         <Link to="/blog" className='mx-3'>Blog</Link>
-                        <Link to="/login" className='mx-3'>Login</Link>
-                        <Link to="/register" className='mx-3'>Sign up</Link>
+                       
+                        <p>{user.displayName}</p>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                {
+                            user ? <div className='flex items-center gap-4'> 
+                                <FaUserCircle className='text-3xl'></FaUserCircle>
+                                <button className="btn btn-outline">Log out</button>
+                            </div>:
+                            <Link to="/login" className='mx-3'>Login</Link>
+                        
+                        }
                 </div>
             </div>
             {/* <div className="navbar bg-green-500 text-neutral-content justify-between lg-ps-3">
