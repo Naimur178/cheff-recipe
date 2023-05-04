@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: '/chefReciepe/:id',
         element: <PrivateRoute><ChefRecipies></ChefRecipies></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/chefs/${params.id}`)
+        loader: ({params}) => fetch(`https://assignment-server-naimur178.vercel.app/chefs/${params.id}`)
       },
       {
         path: '/terms',

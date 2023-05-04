@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Recipes = () => {
     const [recipes, setRecipes] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/recipes')
+        fetch('https://assignment-server-naimur178.vercel.app/recipes')
         .then(res => res.json())
         .then(data => setRecipes(data))
         .catch(error => console.log(error))
