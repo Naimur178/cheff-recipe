@@ -12,6 +12,7 @@ import ChefRecipies from './components/layout/ChefRecipies.jsx'
 import AuthProvider from './provider/AuthProvider.jsx'
 import PrivateRoute from './components/routes/PrivateRoute.jsx'
 import Terms from './components/Terms/Terms.jsx'
+import NotFound from './components/NotFound/NotFound.jsx'
 
 const router = createBrowserRouter([
   {
@@ -42,10 +43,16 @@ const router = createBrowserRouter([
       {
         path: '/terms',
         element: <Terms></Terms>
-      }
+      },
+      
 
     ]
+  },
+  {
+    path:'*',
+    element: <NotFound></NotFound>
   }
+
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
