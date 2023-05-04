@@ -5,7 +5,13 @@ import { AuthContext } from '../../../provider/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
 
 const Header = () => {
-    const {user} = useContext(AuthContext);
+    const {user, logOut} = useContext(AuthContext);
+    const handleLogOut=() =>{
+        logOut()
+        .then()
+        .catch(console.error())
+    }
+
     return (
         <div>
             <div className="navbar bg-gray-300 pb-3">
@@ -26,16 +32,17 @@ const Header = () => {
                         <Link to="/register" className='mx-3'>Register</Link>
                         <Link to="/login" className='mx-3'>Login</Link>
                        
-                        <p>{user.displayName}</p>
+                        
                     </ul>
                 </div>
                 <div className="navbar-end">
                 {
                             user ? <div className='flex items-center gap-4'> 
                                 <FaUserCircle className='text-3xl'></FaUserCircle>
-                                <button className="btn btn-outline">Log out</button>
+                                <button onClick={handleLogOut
+                                } className="btn btn-outline">Log out</button>
                             </div>:
-                            <Link to="/login" className='mx-3'>Login</Link>
+                            <Link to="/login" className='mx-3 btn btn-outline '>Log in</Link>
                         
                         }
                 </div>

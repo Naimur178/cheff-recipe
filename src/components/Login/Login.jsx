@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
+    const navigate = useNavigate();
     const { logIn } = useContext(AuthContext);
     const handleLogIn = event => {
         event.preventDefault();
@@ -17,6 +18,7 @@ const Login = () => {
         .then(result => {
             const loggedUser = result.user;
             console.log(loggedUser);
+            navigate('/');
         } )
         .catch(error => {
             console.log(error);
