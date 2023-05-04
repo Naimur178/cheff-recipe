@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 import Popup from 'reactjs-popup';
 
 const ChefRecipies = () => {
@@ -7,6 +8,14 @@ const ChefRecipies = () => {
     const chefReciepe = useLoaderData();
     const chefResInfo = chefReciepe[0];
     console.log(chefReciepe)
+
+    const toasty = (e)=>{
+        toast('Recipe Added as favourite',{ autoClose: 5000 , theme: 'colored'});
+    }
+    const disableOnClick=e=>{
+        e.currentTarget.disabled=true;
+        
+    }
     return (
         <div className='w-3/4 mx-auto'>
             <div className="hero   py-8">
@@ -24,14 +33,25 @@ const ChefRecipies = () => {
             </div>
             <div>
                 <h2 className='text-center py-4 text-3xl font-semibold shadow-xl'>Exciting Reciepes</h2>
+                
                 <div className='grid lg:grid-cols grid-cols-1 gap-4'>
                     {
                         chefResInfo.recipe.map(rec =>
 
                             <div key={rec.id} className="card  glass my-4 hover:shadow-2xl bg-base-200">
                                 <figure><img src={rec.image} className='rounded-2xl' alt="car!" /></figure>
+                                
                                 <div className="card-body">
+                                <ToastContainer  className="text-center text-green-500"></ToastContainer>
+                                    <div className='flex justify-between'>
                                     <h2 className="card-title">{rec.title}</h2>
+                                    <button id={rec.id}
+                                     onClick={(e)=>{
+                                        toasty(e);
+                                        disableOnClick(e)
+                                        
+                                        } }  className='btn btn-outline' >Favorite</button>
+                                    </div>
                                     <p>
                                         <h2 className='font-semibold text-lg'>Ingradients</h2>
                                         {
