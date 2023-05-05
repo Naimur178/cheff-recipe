@@ -1,10 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../provider/AuthProvider';
 import { Link } from 'react-router-dom';
+import { getAuth, updateProfile } from 'firebase/auth';
 
 const Register = () => {
     const [errors, setErrors] = useState();
     const {createUser} = useContext(AuthContext);
+    const auth = getAuth();
+
     const handleRegister= event=> {
         event.preventDefault();
         const form = event.target;
@@ -24,6 +27,7 @@ const Register = () => {
         createUser(email, password)
         .then(result =>{
             const createdUser = result.user;
+            updateUserData(result.user, name, photo);
             console.log(createdUser);
             setErrors('');
         })
@@ -31,6 +35,21 @@ const Register = () => {
             console.log(error);
             setErrors(error.message)
         })
+        
+
+
+    }
+    const updateUserData = (user, name, url)=>{
+        updateProfile(user, {
+            displayName: name,
+            photoURL : url
+        })
+            .then(() => {
+                console.log('user name updated')
+            })
+            .catch(error => {
+                setErrors(error.message);
+            })
     }
     return (
         <div>

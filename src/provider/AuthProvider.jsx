@@ -27,7 +27,7 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         return signOut(auth);
     }
-    const googLogIn = 
+     
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, loggedUser =>{

@@ -37,7 +37,9 @@ const Header = () => {
                 <div className="navbar-end">
                 {
                             user ? <div className='flex items-center gap-4'> 
-                                <FaUserCircle className='text-3xl'></FaUserCircle>
+                                <div className='tooltip tooltip-bottom' data-tip={user.displayName}>
+                                <img src={user.photoURL} alt={<FaUserCircle></FaUserCircle>}   className='w-12 rounded-2xl'  />
+                                </div>
                                 <button onClick={handleLogOut
                                 } className="btn btn-outline">Log out</button>
                             </div>:

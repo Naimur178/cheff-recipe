@@ -14,6 +14,7 @@ import PrivateRoute from './components/routes/PrivateRoute.jsx'
 import Terms from './components/Terms/Terms.jsx'
 import NotFound from './components/NotFound/NotFound.jsx'
 
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -58,6 +59,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router}></RouterProvider></AuthProvider>
-  </React.StrictMode>,
+      
+      <RouterProvider router={router}></RouterProvider>
+      
+      </AuthProvider>
+  </React.StrictMode>
 )

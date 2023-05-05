@@ -1,6 +1,11 @@
 import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
+import { FaRegStar, FaStar, FaStarAndCrescent } from 'react-icons/fa';
+import { SlLike } from 'react-icons/Sl';
+
+import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
+
 
 const Chefs = () => {
     const [chefs, setChefs] =useState([]);
@@ -27,11 +32,14 @@ const Chefs = () => {
                      <figure><img src={chef.img} alt="car!"/></figure>
                      <div className="card-body">
                        <h2 className="card-title">{chef.name}</h2>
-                       <p className='text-center'>He with a passion for creating the most delicious and authentic Chinese cuisine.</p>
+                       <p className=''>He with a passion for creating the most delicious and authentic Chinese cuisine.</p>
                        <p>Experience: {chef.experience} Years</p>
                        <p>No. of reciepes: {chef.numberOfRecipe} </p>
-                       <p>Rating: {chef.ratings}</p>
-                       <p>Likes: {chef.ratingsCount}</p>
+                       <p>Rating: <Rating emptySymbol={<FaRegStar></FaRegStar>}
+    fullSymbol={<FaStar color='orange'></FaStar>} initialRating={chef.ratings}
+  readonly
+></Rating> </p>
+                       <p className='flex items-center gap-2'><SlLike></SlLike> {chef.ratingsCount}</p>
                        <div className="card-actions justify-center ">
                        <Link to={`/chefReciepe/${chef.id}`} className='btn btn-outline hover:btn-primary w-full items'>See All Recipies</Link>
                        </div>
